@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body onload="do_game()">
+
+    <script >
+      var colors   = ["blue", "brown", "green","orange","red", "yellow"];
+      var finished = false;
+      var theColor = "";
+      var userColor= "";
+      var guessNumber  = 0;
+      userColorInRange =false;
+      function ask(){
+        do {
+         guessNumber++;
+         userColor =  prompt("I am  thinking in one of these colors:\n\n"
+                            + colors +"\n\n"+
+                             "What color am I thinking of?"  ).toLowerCase();
+         if(userColor===theColor){
+           finished=true;
+           alert("Congratulations! you have guessed the color!\n\n" +
+                  "It took you "+ guessNumber + " guesses to finish the game!\n\n")
+         }
+
+        } while (finished === false);
+      }
+
+      function do_game(){
+
+        getRandomColor();
+        confirmShowColor()
+        ask();
+
+      }
+      function confirmShowColor(){
+        var  show = confirm("For debugging. Please confirm if you want to know the color I am thinking. ")
+        if(show === true){
+          alert("The color I am thinking is " + theColor);
+        }
+      }
+      function getRandomColor(){
+        var randomIndex = Math.floor(Math.random()* colors.length) ;
+        theColor=colors[randomIndex];
+      }
+
+    </script>
+  </body>
+</html>

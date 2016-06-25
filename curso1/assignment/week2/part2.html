@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body onload="do_game()">
+
+    <script >
+      var colors   = ["blue", "brown", "green","orange","red", "yellow"];
+      var finished = false;
+      var theColor = "";
+      var userColor= "";
+      var guessNumber  = 0;
+      userColorInRange =false;
+      function ask(){
+        do {
+         guessNumber++;
+         userColor =  prompt("I am  thinking in one of these colors:\n\n"
+                            + colors +"\n\n"+
+                             "What color am I thinking of?"  ).toLowerCase();
+         finished  = check_guess();
+
+        } while (finished === false);
+      }
+
+      function do_game(){
+
+        getRandomColor();
+        confirmShowColor()
+        ask();
+
+      }
+      function confirmShowColor(){
+        var  show = confirm("For debugging. Please confirm if you want to know the color I am thinking. ")
+        if(show === true){
+          alert("The color I am thinking is " + theColor);
+        }
+      }
+      function getRandomColor(){
+        var randomIndex = Math.floor(Math.random()* colors.length) ;
+        theColor=colors[randomIndex];
+      }
+      function check_guess(){
+         for(i = 0; i < colors.length; i++){
+           if (userColor===colors[i]){
+             userColorInRange = true;
+             break;
+           }else {
+              userColorInRange = false;
+           }
+         }
+         if(userColorInRange===false){
+           alert("Sorry I don't recognize your color.\n\n" +
+                 "Please try again.");
+           return false;
+         }
+         else if (userColor < theColor){
+           alert("Sorry your guess is not correct!\n\n" +
+                 "Hint: your color is alphabetically lower than mine\n\n" +
+                 "Please try again.");
+           return false;
+         }
+         else if (userColor > theColor) {
+            alert("Sorry your guess is not correct!\n\n" +
+                  "Hint: your color is alphabetically higher than mine\n\n" +
+                  "Please try again.");
+            return false;
+         }
+         else if(userColor===theColor){
+           myBody=document.getElementsByTagName("body")[0];
+           myBody.style.background=theColor;
+           alert("Congratulations! you have guessed the color!\n\n" +
+                  "It took you "+ guessNumber + " guesses to finish the game!\n\n" +
+                  "You can see the color in the background."   );
+           return true;
+         }
+      }
+    </script>
+  </body>
+</html>
