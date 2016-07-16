@@ -88,7 +88,11 @@
 
                 <div class="col-xs-12 col-sm-2">
                   <p style="padding:40px;"></p>
-                  <a   class="btn btn-warning" href="#formReserve">Reserve table</a>
+                  <a   class="btn btn-warning btn-block"
+                       data-toggle="tooltip"
+                       data-placement="bottom" title="Or Call us at +852 12345678"
+                       href="#formReserve">Reserve table
+                  </a>
                 </div>
             </div>
 
@@ -271,6 +275,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+     });
+  </script>
 
 </body>
 
