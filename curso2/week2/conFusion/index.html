@@ -66,8 +66,9 @@
         </div>
     </nav>
 
-    <!-- THE MODAL -->
+    <!-- THE MODALs -->
 
+   <!-- THE LOGIN MODAL-->
     <div id="loginModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -99,6 +100,75 @@
         </div>
       </div>
     </div>
+    
+    <!--MODAL FOR RESERVATION-->
+    
+    <div class="modal fade" id="ModalReserve" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                    <h4>Reserve a Table</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <form id="formReserve" class="form-inline" role="form">
+                          <div class="form-group col-xs-12">
+                                <label class="control-label col-xs-2" for="guestNumber">Number of Guest</label>
+                                <div class="col-xs-8">
+                                  <input type="radio" name="guestNumber" id="GuestNumber" value="1"> 1
+                                  <input type="radio" name="guestNumber" id="GuestNumber" value="2"> 2
+                                  <input type="radio" name="guestNumber" id="GuestNumber" value="3"> 3
+                                  <input type="radio" name="guestNumber" id="GuestNumber" value="4"> 4
+                                  <input type="radio" name="guestNumber" id="GuestNumber" value="5"> 5
+                                  <input type="radio" name="guestNumber" id="GuestNumber" value="6"> 6
+                                </div>
+                          </div>
+                          <div class="form-group col-xs-12">
+                              <div class="col-xs-2">
+                                  <label for="sections" class="control-label">Section</label>
+                              </div>
+                              <div class="col-xs-10">
+                                  <div id="sections" class="btn-group" data-toggle="buttons">
+                                      <label class="btn btn-success active">
+                                          <input type="radio" name="non-smocking" id="non-smockig">Non-Smoking
+                                      </label>
+                                      <label class="btn btn-danger">
+                                          <input type="radio" name="smocking" id="smockig">Smoking
+                                      </label>
+                                  </div>
+                              </div>
+                          </div>       
+                          <div class="form-group has-feedback col-xs-12">
+                              <div class="col-xs-2">
+                                <label class="control-label" for="date">Date and Time</label>
+                              </div>
+                              <div class="col-xs-4">
+                                <input  class="form-control " type="text" name="date" value="" placeholder="Date">
+                                <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
+                              </div>
+                              <div class="col-xs-4 col-xs-offset-1">
+                                <input  class="form-control " type="text" name="time" value="" placeholder="Time">
+                                <span class="glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
+                              </div>
+                          </div>
+                          <br>
+                        </form>
+                        <div class="col-xs-10 col-xs-offset-2">
+                            <button type="submit" class="btn btn-primary">Reserve</button>
+                            <button data-dismiss="modal" class="btn btn-default">Cancel</button>
+                        </div>
+                        <div class=" col-xs-10 col-xs-offset-1 alert alert-warning alert-dismissible"  role="alert">
+                            <button type="button" class="close" data-dismiss=alert aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>Warning!</strong>  Please <a href="#phonenumber"><strong>call</strong></a> us to reserve more than six guests.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
 
     <header class="jumbotron">
 
@@ -118,16 +188,17 @@
 
                 <div class="col-xs-12 col-sm-2">
                   <p style="padding:40px;"></p>
-                  <a   class="btn btn-warning btn-block"
-                       data-toggle="tooltip"
-                       data-placement="bottom" title="Or Call us at +852 12345678"
-                       href="#formReserve">Reserve table
+                  <a  class="btn btn-warning btn-block"
+                      data-toggle="modal"
+                      data-target="#ModalReserve">Reserve table
                   </a>
                 </div>
             </div>
 
         </div>
+
     </header>
+
 
     <div class="container">
         <div class="row row-content">
@@ -259,57 +330,7 @@
               </div>
               </div>
         </div>
-        <div class="row row-content">
-          <div class="col-xs-12 col-sm-4">
-            <h2>Reserve a Table</h2>
-          </div>
-          <div class="col-xs-12 col-sm-8">
-            <form id="formReserve" class="form-inline" role="form">
-              <div class="form-group col-xs-12">
-                    <label class="control-label col-xs-2" for="guestNumber">Number of Guest</label>
-                    <div class="col-xs-8">
-                      <input type="radio" name="guestNumber" id="GuestNumber" value="1"> 1
-                      <input type="radio" name="guestNumber" id="GuestNumber" value="2"> 2
-                      <input type="radio" name="guestNumber" id="GuestNumber" value="3"> 3
-                      <input type="radio" name="guestNumber" id="GuestNumber" value="4"> 4
-                      <input type="radio" name="guestNumber" id="GuestNumber" value="5"> 5
-                      <input type="radio" name="guestNumber" id="GuestNumber" value="6"> 6
-                    </div>
-              </div>
 
-
-              <div class="form-group has-feedback col-xs-12">
-                  <div class="col-xs-2">
-                    <label class="control-label" for="date">Date and Time</label>
-                  </div>
-                  <div class="col-xs-4">
-                    <input  class="form-control " type="text" name="date" value="" placeholder="Date">
-                    <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
-                  </div>
-                  <div class="col-xs-4 col-xs-offset-1">
-                    <input  class="form-control " type="text" name="time" value="" placeholder="Time">
-                    <span class="glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
-                  </div>
-              </div>
-              <br>
-              <div class="form-group">
-                <div class="col-xs-3 col-xs-offset-6" >
-                    <button type="submit" class="btn btn-primary">Reserve</button>
-                </div>
-              </div>
-            </form>
-            <br>
-            <div class="row">
-              <div class=" col-xs-12 alert alert-warning alert-dismissible"  role="alert">
-                <button type="button" class="close" data-dismiss=alert aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>Warning!</strong>  Please <a href="#phonenumber"><strong>call</strong></a> us to reserve more than six guests.
-              </div>
-            </div>
-
-          </div>
-        </div>
     </div>
 
     <footer class="container row-footer">
