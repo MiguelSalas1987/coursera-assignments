@@ -1,0 +1,25 @@
+{
+  "name": "conFusion",
+  "homepage": "https://github.com/MiguelSalas1987/coursera-assignments",
+  "authors": [
+    "Miguel Salas <miguelsalas.git@gmail.com>"
+  ],
+  "description": "example project",
+  "main": "index.html",
+  "keywords": [
+    "example",
+    "project"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3"
+  }
+}
