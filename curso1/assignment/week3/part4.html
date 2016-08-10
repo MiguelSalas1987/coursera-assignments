@@ -23,14 +23,15 @@
       var theLeftSide  = document.getElementById("leftSide");
       var theRightSide = document.getElementById("rightSide");
       var numberOfFaces = 5;
+      var imageURL = "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png"
 
 
       function generateFaces(){
-        for (var i = 0; i <= numberOfFaces; i++ ){
+        for (var i = 0; i < numberOfFaces; ++i ){
           var img = document.createElement("img");
-          img.src="http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
-          var topPosition  = Math.floor(Math.random()*400);
-          var leftPosition = Math.floor(Math.random()*400);
+          img.src= imageURL;
+          var topPosition  = Math.floor(Math.random()*401);
+          var leftPosition = Math.floor(Math.random()*401);
           img.style.top    = topPosition  + 'px';
           img.style.left   = leftPosition + 'px';
           theLeftSide.appendChild(img);
