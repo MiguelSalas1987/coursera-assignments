@@ -39,7 +39,6 @@
                     <div class="media-body">
                       <h2 class="media-heading">{{detailsCtrl.dish.name}} <span class="label label-danger">{{detailsCtrl.dish.label}}</span> <span class="badge">{{detailsCtrl.dish.price | currency}}</span></h2>
                       <p>{{detailsCtrl.dish.description}}</p>
-                      <p><a class=" btn btn-primary btn-xs"  href="#">More &raquo;</a></p>
                     </div>
                 </div>
             </div>
@@ -47,11 +46,11 @@
               <div>
                   <strong>Custommer Comments</strong>
                   <label for="sort">  <small>Sort by</small>
-                      <input type="text" name="sort" value="">
+                      <input type="text" name="sort" ng-model="detailsCtrl.userInput">
                   </label>
               </div>
               
-               <blockquote ng-repeat="eachComment in detailsCtrl.dish.comments">
+               <blockquote ng-repeat="eachComment in detailsCtrl.dish.comments | orderBy: detailsCtrl.userInput">
                   <p>{{eachComment.rating}} Stars</p>
                   <p>{{eachComment.comment}}</p>
                   <footer>{{eachComment.author}}, {{eachComment.date | date}} </footer>
@@ -112,6 +111,8 @@
                     };
             
             this.dish = dish;
+            userInput="";
+            this.userInput = userInput;
             
         });
 
