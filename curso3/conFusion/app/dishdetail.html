@@ -46,11 +46,11 @@
               <div>
                   <strong>Custommer Comments</strong>
                   <label for="sort">  <small>Sort by</small>
-                      <input type="text" name="sort" ng-model="detailsCtrl.userInput">
+                      <input type="text" name="sort" ng-model="userInput">
                   </label>
               </div>
               
-               <blockquote ng-repeat="eachComment in detailsCtrl.dish.comments | orderBy: detailsCtrl.userInput">
+               <blockquote ng-repeat="eachComment in detailsCtrl.dish.comments | orderBy: userInput">
                   <p>{{eachComment.rating}} Stars</p>
                   <p>{{eachComment.comment}}</p>
                   <footer>{{eachComment.author}}, {{eachComment.date | date}} </footer>
@@ -111,8 +111,7 @@
                     };
             
             this.dish = dish;
-            userInput="";
-            this.userInput = userInput;
+
             
         });
 
